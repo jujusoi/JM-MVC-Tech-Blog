@@ -1,14 +1,12 @@
 const router = require('express').Router();
 const homeRoute = require('./homerouter');
+const signUp = require('./signupRouter');
+const dashboardRoute = require('./dashboardRouter');
+const loginRoute = require('./loginRoute');
 
 router.use('/home', homeRoute);
-
-router.get('/', async (req, res) => {
-    try {
-        res.status(200).render(`signup`);
-    } catch (err) {
-        res.status(404).json(`Aint work`)
-    }
-});
+router.use('/sign-up', signUp);
+router.use('/dashboard', dashboardRoute);
+router.use('/login', signUp);
 
 module.exports = router;
