@@ -3,5 +3,10 @@
         "post_title": "How to use if statements?",
         "post_description": "Okay, like im struggling a lot this is a lot for me right now i'm goign through it and i don't know how to use if statements someone plssss help",
         "user_id": 3
+    },
+    {
+        "post_title": "Is serializing data really important tho?",
+        "post_description": "I get that it's 'important' for letting render packages access and utilize data, but is it really though? like who said it is? can you really trust them? what evidence do they have to back it up?",
+        "user_id": 2
     }
 ]

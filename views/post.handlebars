@@ -3,15 +3,15 @@
             <div id="post-screen">
                 <div class="user-div">
                     <div class="username-div">
-                        <h4 class="username"><a href="/users/">Username here</a></h4>
+                        <h4 class="username"><a href="/users/{{mappedPost.user_id}}">{{mappedPost.user.username}}</a></h4>
                     </div>
                 </div>
                 <div id="post-details-div">
                     <div id="post-title-div">
-                        <h3 id="post-title">Post here</h3>
+                        <h3 id="post-title">{{mappedPost.post_title}}</h3>
                     </div>
                     <div id="post-description-div">
-                        <p id="post-description">post description here</p>
+                        <p id="post-description">{{mappedPost.post_description}}</p>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <section id="comment-section">
-                {{#each comments as |comment|}}
+                {{#each mappedPost.comments as |comment|}}
                 {{> comment-partial}}
                 {{/each}}
           </section>

@@ -1,5 +1,6 @@
 const home = require('express').Router();
 const { User, Post } = require('../models');
+const postRoute = require('./posts');
 
 home.get('/',  async (req, res) => {
     try {
@@ -18,5 +19,7 @@ home.get('/',  async (req, res) => {
         res.status(404).json(`Not found`);
     }
 });
+
+home.use('/posts', postRoute);
 
 module.exports = home;
