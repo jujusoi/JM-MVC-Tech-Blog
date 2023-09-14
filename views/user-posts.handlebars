@@ -1,0 +1,7 @@
+
+        <section id="post-sect">
+            <h2>All posts by user {{mappedPost.[0].user.username}}</h2>
+            {{#each mappedPost as |post|}}
+            {{> post-partial}}
+            {{/each}}
+        </section>
