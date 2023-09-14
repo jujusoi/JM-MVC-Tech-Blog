@@ -4,7 +4,7 @@ const { User, Post, Comment } = require('../../models/');
 userRoute.get('/:id', async (req, res) => {
     try {
         const userData = await User.findByPk(req.params.id, {
-            include: [{ model: Post }],
+            include: [{ model: Post }, { model: Comment }],
         });
         res.status(200).json(userData);
     } catch (err) {

@@ -1,0 +1,12 @@
+[
+    {
+        "comment_description": "THIS POST SUCKSSSSS!!!!",
+        "post_id": 1,
+        "user_id": 3
+    },
+    {
+        "comment_description": "Bro delete this before it's too late",
+        "post_id": 1,
+        "user_id": 1
+    }
+]
