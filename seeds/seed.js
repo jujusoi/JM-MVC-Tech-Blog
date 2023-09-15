@@ -10,7 +10,10 @@ const seed = async () => {
     try {
         await sequelize.sync({ force: true });
 
-        await User.bulkCreate(userSeedData);
+        await User.bulkCreate(userSeedData, {
+            individualHooks: true,
+            returning: true,
+        });
         await Post.bulkCreate(postSeedData);
         await Comment.bulkCreate(commentSeedData);
 
