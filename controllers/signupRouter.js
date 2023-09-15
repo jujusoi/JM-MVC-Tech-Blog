@@ -11,18 +11,28 @@ sign.get('/',  async (req, res) => {
 
 sign.post('/', async (req, res) => {
     try {
-    const userData = await User.create(req.body);
-    if (!userData) {
-        res.status(404).json({ message: `Could not create new user`});
-        return;
-    } else {
-        req.session.save(() => {
-            req.session.user_id = userData.id;
-            req.session.logged_in = true;
-            req.session.username = userData.username;
-            res.status(200).json({ message: `Successfully logged in!`});
+        const checkData = await User.findOne({
+            where: {
+                username: req.body.username,
+            }
         });
-    };
+        if (checkData) {
+            res.status(400).json({ message: `User already exists.`});
+            return;
+        } else {
+            const userData = await User.create(req.body);
+            if (!userData) {
+                res.status(404).json({ message: `Could not create new user`});
+                return;
+            } else {
+                req.session.save(() => {
+                    req.session.user_id = userData.id;
+                    req.session.logged_in = true;
+                    req.session.username = userData.username;
+                    res.status(200).json({ message: `Successfully logged in!`});
+                });
+            };
+        }
     } catch (err) {
         res.status(500).json(`Could not post data, ${err}`);
     }
