@@ -8,7 +8,7 @@
                 </div>
                 <div id="post-details-div">
                     <div id="post-title-div">
-                        <h3 id="post-title">{{mappedPost.post_title}}</h3>
+                        <h3 data-postid="{{mappedPost.id}}" id="post-title">{{mappedPost.post_title}}</h3>
                     </div>
                     <div id="post-description-div">
                         <p id="post-description">{{mappedPost.post_description}}</p>
@@ -34,3 +34,4 @@
                 {{/each}}
           </section>
         </section>
+        <script src="/js/post.js"></script>

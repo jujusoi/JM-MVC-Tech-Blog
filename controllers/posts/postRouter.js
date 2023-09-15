@@ -28,4 +28,22 @@ post.get('/:id', async (req, res) => {
     }
 });
 
+post.post('/:id', async (req, res) => {
+    console.log(req.body);
+    try {
+        const newComment = await Comment.create({
+            comment_description: req.body.comment_description,
+            post_id: req.body.post_id,
+            user_id: req.session.user_id,
+    });
+    if (!newComment) {
+        res.status(400).json({ message: `Could not post comment`});
+    } else {
+        res.redirect(`/home/posts/${req.body.post_id}`);
+    };
+    } catch (err) {
+        res.status(500).json(`Error in making post request, ${err}`);
+    };
+});
+
 module.exports = post;
