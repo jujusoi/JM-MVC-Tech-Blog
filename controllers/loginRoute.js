@@ -26,9 +26,12 @@ login.post('/', async (req, res) => {
             return;
         } else {
             req.session.save(() => {
-                req.session.user_id = userData.id;
+                req.session.user = {
+                    user_id: userData.id,
+                    username: userData.username,
+                };
                 req.session.logged_in = true;
-                req.session.username = userData.username;
+                
                 console.log(req.session);
                 res.json({ message: `Successfully logged in!`});
             })

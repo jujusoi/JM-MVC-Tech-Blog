@@ -17,11 +17,11 @@ user.get('/:id', async (req, res) => {
             }],
         });
     const mappedPost = userPosts.map((post) => post.get({ plain: true }));
-    const mainUser = req.session.username;
+    const user = req.session.user;
     console.log(mappedPost);
     res.render('user-posts', {
         mappedPost,
-        mainUser,
+        user,
     });
     } catch (err) {
         res.status(500).json(`Could not retrieve information`);

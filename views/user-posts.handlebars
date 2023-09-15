@@ -1,6 +1,6 @@
 
         <section id="post-sect">
-            {{#if (eq mainUser mappedPost.[0].user.username)}}
+            {{#if (eq user.username mappedPost.[0].user.username)}}
             <h2>All posts by you</h2>
             {{else}}
             <h2>All posts by user {{mappedPost.[0].user.username}}</h2>

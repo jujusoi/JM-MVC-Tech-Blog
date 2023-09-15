@@ -15,12 +15,10 @@ post.get('/:id', async (req, res) => {
     } else {
         const mappedPost = postData.get({ plain: true });
         console.log(mappedPost);
-        const mainUser = req.session.username;
-        const userId = req.session.user_id;
+        const user = req.session.user;
         res.status(200).render('post', {
             mappedPost,
-            mainUser,
-            userId,
+            user,
         });
     }
     } catch (err) {
@@ -34,7 +32,7 @@ post.post('/:id', async (req, res) => {
         const newComment = await Comment.create({
             comment_description: req.body.comment_description,
             post_id: req.body.post_id,
-            user_id: req.session.user_id,
+            user_id: req.session.user.user_id,
     });
     if (!newComment) {
         res.status(400).json({ message: `Could not post comment`});
