@@ -16,13 +16,28 @@ user.get('/:id', async (req, res) => {
                 model: User,
             }],
         });
-    const mappedPost = userPosts.map((post) => post.get({ plain: true }));
-    const user = req.session.user;
-    console.log(mappedPost);
-    res.render('user-posts', {
-        mappedPost,
-        user,
-    });
+        const user = req.session.user;
+        if (userPosts.length == 0) {
+            const onlyUser = await User.findOne({
+                where: {
+                    id: req.params.id,
+                },
+                attributes: {
+                    exclude: [ 'password' ],
+                },
+            });
+            const noUser = onlyUser.get({ plain: true });
+            res.render('user-posts', {
+                noUser,
+                user,
+            });
+        } else {
+            const mappedPost = userPosts.map((post) => post.get({ plain: true }));
+            res.render('user-posts', {
+                mappedPost,
+                user,
+            });
+        }
     } catch (err) {
         res.status(500).json(`Could not retrieve information`);
     }

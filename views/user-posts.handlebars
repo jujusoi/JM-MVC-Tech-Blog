@@ -1,9 +1,17 @@
 
         <section id="post-sect">
+            {{#if mappedPost}}
             {{#if (eq user.username mappedPost.[0].user.username)}}
             <h2>All posts by you</h2>
             {{else}}
             <h2>All posts by user {{mappedPost.[0].user.username}}</h2>
+            {{/if}}
+            {{else}}
+            {{#if (eq user.username noUser.username)}}
+            <h2>You have no posts!</h2>
+            {{else}}
+            <h2>User {{noUser.username}} has no posts!</h2>
+            {{/if}}
             {{/if}}
             {{#each mappedPost as |post|}}
             {{> post-partial}}
