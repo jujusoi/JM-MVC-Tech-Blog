@@ -12,6 +12,9 @@ dashboard.get('/',  async (req, res) => {
                     exclude: [ 'password' ],
                 },
             },
+            order: [
+                [ 'id', 'DESC'],
+            ],
         });
         console.log(userPosts);
         if (userPosts.length === 0) {

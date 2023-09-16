@@ -15,6 +15,9 @@ user.get('/:id', async (req, res) => {
             include: [{
                 model: User,
             }],
+            order: [
+                [ 'id', 'DESC'],
+            ],
         });
         const user = req.session.user;
         if (userPosts.length == 0) {
