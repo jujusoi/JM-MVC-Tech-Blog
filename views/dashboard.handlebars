@@ -10,8 +10,14 @@
             </div>
         </section>
         <section id="post-sect">
-            {{#each yourpost as |post|}}
+            {{#if mappedPost}}
+            {{#each mappedPost as |post|}}
                 {{> dashboard-partial}}
             {{/each}}
+            {{else}}
+             <div class="post-screen">
+                <h3>You haven't made any posts yet!</h3>
+             </div>
+             {{/if}}
         </section>
         <script src="/js/dashboard.js"></script>
