@@ -1,3 +1,32 @@
 * {
-    border: 1px solid black;
+    border: 1px solid transparent;
+}
+
+header {
+    background-color: #0070c09e;
+}
+
+#post-sect {
+    background-color: #F2F2F2;
+}
+
+.username, .post-description {
+    font-size: 15px;
+}
+
+.post-description-div {
+    background-color: white;
+}
+.post-screen {
+    border-top: 1px solid #3333336a;
+}
+
+.buttons {
+    background-color: #FF9900!important;
+}
+
+@media (max-width: 768px) {
+    #post-sect {
+        width: 100%!important;
+    }
 }
