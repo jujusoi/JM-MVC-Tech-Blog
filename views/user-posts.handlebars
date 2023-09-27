@@ -1,13 +1,13 @@
 
         <section id="post-sect" class="d-flex flex-column w-50 m-auto mt-3 p-3 rounded">
             {{#if mappedPost}}
-            {{#if (eq user.username mappedPost.[0].user.username)}}
+            {{#if (eq userInfo.username mappedPost.[0].user.username)}}
             <h2>All posts by you</h2>
             {{else}}
-            <h2>All posts by user {{mappedPost.[0].user.username}}</h2>
+            <h2 class="m-auto mb-3">All posts by user {{mappedPost.[0].user.username}}</h2>
             {{/if}}
             {{else}}
-            {{#if (eq user.username noUser.username)}}
+            {{#if (eq userInfo.username noUser.username)}}
             <h2>You have no posts!</h2>
             {{else}}
             <h2>User {{noUser.username}} has no posts!</h2>
@@ -17,3 +17,4 @@
             {{> post-partial}}
             {{/each}}
         </section>
+        <script src="/js/homepage.js"></script>

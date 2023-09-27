@@ -6,7 +6,7 @@ header {
     background-color: #0070c09e;
 }
 
-#post-sect {
+#post-sect, #login-sect {
     background-color: #F2F2F2;
 }
 
@@ -17,11 +17,14 @@ header {
 .post-description-div {
     background-color: white;
 }
-.post-screen {
+.post-screen, #comment-screen {
     border-top: 1px solid #3333336a;
     transition: 0.6s;
 }
-.post-screen:hover {
+.comment-section-new {
+    transition: .6s;
+}
+.post-screen:hover, .comment-section-new:hover {
     background-color: #33333316;
 }
 
@@ -46,8 +49,21 @@ a {
     color: white!important;
 }
 
+.post-title, .post-description {
+    cursor: pointer;
+}
+
+#new-comment-button {
+    text-align: left;
+    width: 100%;
+}
+
+#login-sect {
+    width: 30%!important;
+}
+
 @media (max-width: 768px) {
-    #post-sect {
+    #post-sect, #login-sect {
         width: 100%!important;
     }
 }

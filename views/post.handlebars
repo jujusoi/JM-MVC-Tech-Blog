@@ -6,26 +6,31 @@
                         <h4 class="username"><a href="/home/users/{{mappedPost.user_id}}">{{mappedPost.user.username}}</a></h4>
                     </div>
                 </div>
-                <div id="post-details-div">
+                <div id="post-details-div" class="mb-4">
                     <div id="post-title-div">
                         <h3 data-postid="{{mappedPost.id}}" id="post-title">{{mappedPost.post_title}}</h3>
                     </div>
-                    <div id="post-description-div">
+                    <div id="post-description-div" class="post-description-div p-2 rounded">
                         <p id="post-description">{{mappedPost.post_description}}</p>
                     </div>
                 </div>
             </div>
-            <div id="comment-screen">
+            <div id="comment-screen" class="py-3">
                 <div class="commenter-username-div">
-                    <h4 class="commenter-username">Comment as <a id="your-username" href="/home/users/{{user.user_id}}">{{user.username}}</a></h4>
+                    <button id="new-comment-button" class="btn px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="background-color: #33333319;">
+                    <h4 class="commenter-username" style="font-size: 17px;">Comment as <b>{{userInfo.username}}</b></h4>
+                    </button>
                 </div>
-                <div class="commenter-form-div">
+                <div class="collapse mt-1" id="collapseExample">
+                        <div class="commenter-form-div">
                     <form id="commenter-form">
-                        <input type="text" id="comment-input" placeholder="What are your thoughts?">
+                        <textarea type="text" id="comment-input" class="form-control"
+                        aria-label="search" placeholder="What are your thoughts?" style="height: 110px;"></textarea>
                     </form>
                 </div>
-                <div id="comment-button-div">
-                    <button id="comment-button">Post Comment</button>
+                <div id="comment-button-div" class="d-flex justify-content-center">
+                    <button id="comment-button" class="col-6 mt-1 buttons btn btnB px-3">Post Comment</button>
+                </div>
                 </div>
             </div>
             <section id="comment-section">
