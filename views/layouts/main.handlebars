@@ -15,18 +15,31 @@
                     <div id="header-title-div" class="m-auto mt-3">
                         <h2 id="web-title">Tech Blog</h2>
                     </div>
+                    {{#if userInfo}}
                     <div id="header-buttons-div" class="d-flex justify-content-evenly my-3">
+                        <div>
                         <button class="buttons btn btnB px-3" id="home-button">
                             Home
                         </button>
+                        {{#unless dashboardCheck}}
                         <button class="buttons btn btnB px-3" id="dashboard-button">
                             Dashboard
+                        </button>
+                        {{/unless}}
+                        </div>
+                    </div>
+                    {{else}}
+                    <div id="header-buttons-div" class="d-flex justify-content-evenly my-3">
+                        <div>
+                        <button class="buttons btn btnB px-3" id="home-button">
+                            Home
                         </button>
                         <button class="buttons btn btnB px-3" id="login-button">
                             Login
                         </button>
+                        </div>
                     </div>
-                </div>
+                    {{/if}}
         </section>
     </header>
     <main>
@@ -36,5 +49,11 @@
 
     </footer>
     <script src="/js/main.js"></script>
+    {{#unless dashboardCheck}}
+    <script src="/js/dashboardBtn.js"></script>
+    {{/unless}}
+    {{#unless userInfo}}
+    <script src="/js/loggedout.js"></script>
+    {{/unless}}
 </body>
 </html>

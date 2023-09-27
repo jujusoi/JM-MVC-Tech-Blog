@@ -19,7 +19,6 @@ user.get('/:id', async (req, res) => {
                 [ 'id', 'DESC'],
             ],
         });
-        const user = req.session.user;
         if (userPosts.length == 0) {
             const onlyUser = await User.findOne({
                 where: {
@@ -32,13 +31,13 @@ user.get('/:id', async (req, res) => {
             const noUser = onlyUser.get({ plain: true });
             res.render('user-posts', {
                 noUser,
-                user,
+                userInfo: req.session.user,
             });
         } else {
             const mappedPost = userPosts.map((post) => post.get({ plain: true }));
             res.render('user-posts', {
                 mappedPost,
-                user,
+                userInfo: req.session.user,
             });
         }
     } catch (err) {

@@ -18,11 +18,13 @@ dashboard.get('/',  async (req, res) => {
         });
         console.log(userPosts);
         if (userPosts.length === 0) {
-            res.status(200).render(`dashboard`);
+            res.status(200).render(`dashboard` , {
+                userInfo: req.session.user, dashboardCheck: true,
+            });
         } else {
             const mappedPost = userPosts.map((post) => post.get({ plain: true }));
             res.status(200).render(`dashboard`, {
-                mappedPost,
+                mappedPost, userInfo: req.session.user, dashboardCheck: true,
             });
         }
     } catch (err) {

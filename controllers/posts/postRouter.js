@@ -15,10 +15,9 @@ post.get('/:id', async (req, res) => {
     } else {
         const mappedPost = postData.get({ plain: true });
         console.log(mappedPost);
-        const user = req.session.user;
         res.status(200).render('post', {
             mappedPost,
-            user,
+            userInfo: req.session.user,
         });
     }
     } catch (err) {

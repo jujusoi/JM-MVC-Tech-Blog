@@ -19,10 +19,31 @@ header {
 }
 .post-screen {
     border-top: 1px solid #3333336a;
+    transition: 0.6s;
+}
+.post-screen:hover {
+    background-color: #33333316;
 }
 
 .buttons {
     background-color: #FF9900!important;
+}
+
+#web-title, .buttons {
+    color: #333333!important;
+}
+
+a {
+    text-decoration: none!important;
+}
+
+.btnB {
+    transition: .4s;
+}
+
+.btnB:hover {
+    background-color: #f79400!important;
+    color: white!important;
 }
 
 @media (max-width: 768px) {

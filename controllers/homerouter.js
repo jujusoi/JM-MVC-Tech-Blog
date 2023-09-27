@@ -14,9 +14,8 @@ home.get('/',  async (req, res) => {
             ],
         });
         const mappedPost = postData.map((post) => post.get({ plain: true }));
-        console.log(mappedPost);
         res.status(200).render(`homepage`, {
-            mappedPost
+            mappedPost, userInfo: req.session.user,
         });
     } catch (err) {
         res.status(404).json(`Not found`);
