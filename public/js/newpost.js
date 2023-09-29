@@ -27,8 +27,33 @@ editButtons.forEach((button) => {
         if (description && title) {
             document.querySelector('#modal-title-input').value = title;
             document.querySelector('#modal-description-input').value = description;
-        }
-    })
+
+            document.querySelector('#edit-save-button').addEventListener('click', async function() {
+                const newTitle = document.querySelector('#modal-title-input').value.trim();
+                const newDescription = document.querySelector('#modal-description-input').value.trim();
+                if (newTitle && newDescription) {
+                    const response = await fetch(`/api/posts/${post}`, {
+                    method: 'PUT',
+                    body: JSON.stringify({ post_title: newTitle, post_description: newDescription }),
+                    headers: { 'Content-Type': 'application/json' },
+                    });
+                    if (response.ok) {
+                        const newResp = await fetch(`/dashboard`, {
+                            method: 'GET',
+                            headers: { 'Content-Type': 'application/json' },
+                        });
+                        if (newResp.ok) {
+                            location.href = '/dashboard';
+                        } else {
+                            alert(`Failed to edit post`);
+                        }
+                    } else {
+                        alert(`Failed to edit post`);
+                    };
+                };
+            });
+        };
+    });
 });
 
 const deleteButtons = document.querySelectorAll('.delete-button');
