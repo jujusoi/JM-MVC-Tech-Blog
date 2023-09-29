@@ -9,4 +9,3 @@ homeButton.addEventListener('click', async function() {
         location.href = '/home';
     }
 });
-

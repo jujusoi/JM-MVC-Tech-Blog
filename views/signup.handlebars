@@ -1,31 +1,39 @@
- <section id="login-sect" class="d-flex flex-column w-50 m-auto mt-3 p-3 rounded">
-            <div id="login-screen">
-                <div class="user-div">
+ <section id="login-sect" class="d-flex flex-column m-auto mt-3 p-3 rounded">
+            <div id="login-screen" class="d-flex flex-column">
+                <div class="d-flex justify-content-center col-2 m-auto mb-3 mt-3">
+                    <h2 id="login-title">Register</h2>
+                </div>
+                <div class="user-div d-flex flex-column text-center col-4 w-100 mb-4 mt-3">
                     <div class="user-title-div">
                         <h3 class="user-title">New username</h3>
                     </div>
-                    <div class="user-form-div">
+                    <div class="user-form-div w-75 m-auto">
                         <form id="user-form">
-                            <input type="text" id="user-input" placeholder="exampleslayer123">
+                            <input type="text" class="form-control" id="user-input" placeholder="exampleslayer123" required>
                         </form>
                     </div>
                 </div>
-                <div class="user-div">
+                <div class="user-div d-flex flex-column text-center col-4 w-100 mb-4 mt-3">
                     <div class="user-title-div">
                         <h3 class="user-title">New password</h3>
                     </div>
-                    <div class="user-form-div">
+                    <div class="user-form-div w-75 m-auto">
                         <form id="password-form">
-                            <input type="text" id="password-input" placeholder="super secret password">
+                            <input type="password" class="form-control" id="password-input" placeholder="super secret password" required>
                         </form>
                     </div>
                 </div>
-                <div id="sign-in-div">
+                <div id="sign-in-div" class="col-2 m-auto d-flex flex-column text-center w-50">
                     <div id="sign-in-button-div">
-                        <button id="sign-in-button">Create new account</button>
+                        <button id="sign-in-button" class="buttons btn btnB px-3 mb-4">Create new account</button>
+                    </div>
+                    <div>
+                        <p style="font-size: 14px;">
+                            Already have an account?
+                        </p>
                     </div>
                     <div id="sign-up-button-div">
-                        <a href="/login" id="sign-up-button">Log in instead</a>
+                        <a href="/login" id="sign-up-button" class="buttons btn btnB px-3">Log in instead</a>
                     </div>
                 </div>
             </div>
