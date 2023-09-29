@@ -2,7 +2,7 @@ const post = require('express').Router();
 const { loggedIn } = require('../../config/middleware/auth');
 const { User, Post, Comment } = require('../../models');
 
-post.get('/:id', loggedIn, async (req, res) => {
+post.get('/:id', async (req, res) => {
     try {
     const postData = await Post.findByPk(req.params.id, {
         include: [{ model: User, attributes: {

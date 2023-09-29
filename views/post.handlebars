@@ -16,6 +16,7 @@
                 </div>
             </div>
             <div id="comment-screen" class="py-3">
+                {{#if userInfo}}
                 <div class="commenter-username-div">
                     <button id="new-comment-button" class="btn px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="background-color: #33333319;">
                     <h4 class="commenter-username" style="font-size: 17px;">Comment as <b>{{userInfo.username}}</b></h4>
@@ -32,6 +33,13 @@
                     <button id="comment-button" class="col-6 mt-1 buttons btn btnB px-3">Post Comment</button>
                 </div>
                 </div>
+                {{else}}
+                <div class="commenter-username-div">
+                    <button id="new-comment-button" class="btn px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="background-color: #33333319;">
+                    <h4 class="commenter-username" style="font-size: 17px;">Log in to comment</h4>
+                    </button>
+                </div>
+                {{/if}}                
             </div>
             <section id="comment-section">
                 {{#each mappedPost.comments as |comment|}}

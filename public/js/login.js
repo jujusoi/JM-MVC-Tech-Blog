@@ -23,7 +23,7 @@ logLogin.addEventListener('click', async function() {
         if (response.ok) {
             location.href = '/home';
         } else {
-            alert(`Could not login`);
+            alert(`Invalid username or password!`);
         };
     };
 });
