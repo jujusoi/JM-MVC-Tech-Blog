@@ -3,8 +3,9 @@
             <h4 class="username">Post by <a href="/home/users/{{user_id}}">{{user.username}}</a></h4>
         </div>
     <div class="post-details-div mt-2 d-flex flex-column">
-        <div class="post-title-div">
-            <h3 class="post-title" data-postid="{{id}}">{{post_title}}</a></h3>
+        <div class="post-title-div d-flex justify-content-between">
+            <h3 class="post-title col-9" data-postid="{{id}}">{{post_title}}</a></h3>
+            <p class="col-3" style="font-size: 13px; text-align: right;">{{post_date}}</p>
         </div>
         <div class="post-description-div p-2 rounded">
             <p class="post-description" data-postid="{{id}}">{{post_description}}</p>

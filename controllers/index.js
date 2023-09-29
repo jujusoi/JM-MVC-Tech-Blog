@@ -12,7 +12,7 @@ router.use('/home', homeRoute);
 router.use('/sign-up', signUp);
 router.use('/dashboard', loggedIn, dashboardRoute);
 router.use('/login', loginRoute);
-router.use('/logout', loggedIn, logoutRoute);
+router.use('/logout', logoutRoute);
 router.use('/new-post', newPostRoute);
 
 router.use('/api', api);
