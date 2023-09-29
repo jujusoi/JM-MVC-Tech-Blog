@@ -12,4 +12,18 @@ postRoute.get('/:id', async (req, res) => {
     }
 });
 
+postRoute.delete('/:id', async (req, res) => {
+    try {
+        const deletedData = await Post.destroy({
+            where: {
+                id: req.params.id,
+                user_id: req.session.user.user_id,
+            },
+        });
+        res.status(200).json(`Post deleted`);
+    } catch (err) {
+        res.status(500).json(`Could not make delete request, ${err}`);
+    }
+});
+
 module.exports = postRoute;
