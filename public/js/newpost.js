@@ -16,3 +16,33 @@ postButton.addEventListener('click', async function () {
         };
     };
 });
+
+const editButtons = document.querySelectorAll('.edit-button');
+
+editButtons.forEach((button) => {
+    button.addEventListener('click', async function() {
+        const post = button.getAttribute('data-post');
+        console.log(post);
+    })
+});
+
+const deleteButtons = document.querySelectorAll('.delete-button');
+
+deleteButtons.forEach((button) => {
+    button.addEventListener('click', async function() {
+        const post = button.getAttribute('data-post');
+        if (post) {
+            const response = await fetch(`/api/posts/${post}`, {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+            });
+            if (response.ok) {
+                location.href = '/dashboard';
+            } else {
+                alert(`Failed to delete post`);
+            };
+        } else {
+            alert(`Failed to delete post`);
+        }
+    });
+});
