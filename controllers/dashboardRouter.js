@@ -1,7 +1,8 @@
 const dashboard = require('express').Router();
 const { User, Post } = require('../models');
+const { loggedIn } = require('../config/middleware/auth');
 
-dashboard.get('/',  async (req, res) => {
+dashboard.get('/', loggedIn, async (req, res) => {
     try {
         const userPosts = await Post.findAll({
             where: {

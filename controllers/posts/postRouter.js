@@ -1,7 +1,8 @@
 const post = require('express').Router();
+const { loggedIn } = require('../../config/middleware/auth');
 const { User, Post, Comment } = require('../../models');
 
-post.get('/:id', async (req, res) => {
+post.get('/:id', loggedIn, async (req, res) => {
     try {
     const postData = await Post.findByPk(req.params.id, {
         include: [{ model: User, attributes: {
@@ -25,7 +26,7 @@ post.get('/:id', async (req, res) => {
     }
 });
 
-post.post('/:id', async (req, res) => {
+post.post('/:id', loggedIn, async (req, res) => {
     console.log(req.body);
     try {
         const newComment = await Comment.create({

@@ -1,9 +1,8 @@
 const postButton = document.querySelector(`#post-button`);
 
 postButton.addEventListener('click', async function () {
-    const post_title = document.querySelector('#post-title-input').value.trim();
-    const post_description = document.querySelector('#post-description-input').value.trim();
-    
+    const post_title = document.querySelector('#title-input').value.trim();
+    const post_description = document.querySelector('#description-input').value.trim();
     if (post_title && post_description) {
         const response = await fetch('/new-post', {
             method: 'POST',

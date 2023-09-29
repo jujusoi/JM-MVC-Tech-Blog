@@ -1,6 +1,3 @@
-* {
-    border: 1px solid transparent;
-}
 
 header {
     background-color: #0070c09e;
@@ -63,7 +60,7 @@ a {
 }
 
 @media (max-width: 768px) {
-    #post-sect, #login-sect {
+    #post-sect, #login-sect, #new-post {
         width: 100%!important;
     }
 }
