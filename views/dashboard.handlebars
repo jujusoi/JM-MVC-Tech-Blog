@@ -40,6 +40,35 @@
                 <h5 class="mt-3">You haven't made any posts yet!</h5>
              </div>
              {{/if}}
+             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header mt-3" style="border-bottom: 0px;">               
+                        <h5 class="modal-title m-auto" id="exampleModalCenterTitle">Edit post</h5>
+                      </div>
+                      <div class="modal-body"><div class="title-form-div mb-3">
+                    <h5 style="text-align: left;">Enter new title:</h5>
+                    <form id="title-form">
+                        <input type="text" id="modal-title-input" class="form-control"
+                        aria-label="search" placeholder="Post title" style="height: 40px;"></input>
+                    </form>
+                </div>
+                <div class="commenter-form-div mb-3">
+                <h5 style="text-align: left;">Enter new description:</h5>
+                    <form id="description-form">
+                        <textarea type="text" id="modal-description-input" class="form-control"
+                        aria-label="search" placeholder="Post description" style="height: 110px;"></textarea>
+                    </form>
+                </div>
+                <div id="post-button-div" class="d-flex justify-content-center">
+                    <button id="edit-save-button" class="col-6 mt-1 buttons btn btnB px-3">Save Changes</button>
+                </div>
+                            </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
         </section>
         <script src="/js/newpost.js"></script>
         <script src="/js/homepage.js"></script>

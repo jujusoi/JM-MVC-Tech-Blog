@@ -22,7 +22,12 @@ const editButtons = document.querySelectorAll('.edit-button');
 editButtons.forEach((button) => {
     button.addEventListener('click', async function() {
         const post = button.getAttribute('data-post');
-        console.log(post);
+        const description = document.querySelector(`#description-${post}`).textContent;
+        const title = document.querySelector(`#title-${post}`).textContent;
+        if (description && title) {
+            document.querySelector('#modal-title-input').value = title;
+            document.querySelector('#modal-description-input').value = description;
+        }
     })
 });
 
