@@ -76,3 +76,8 @@ deleteButtons.forEach((button) => {
         }
     });
 });
+
+document.querySelector('#title-form-1').addEventListener('submit', (event) => {
+    event.preventDefault();
+    document.querySelector('#description-input').focus();
+});

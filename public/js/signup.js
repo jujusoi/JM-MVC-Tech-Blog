@@ -4,6 +4,13 @@ const userInput = document.querySelector('#user-input')
 const passForm = document.querySelector('#password-form')
 const passInput = document.querySelector('#password-input')
 
+const noReset = (event) => {
+    event.preventDefault();
+};
+
+userForm.addEventListener('submit', noReset);
+passForm.addEventListener('submit', noReset);
+
 signInButton.addEventListener('click', async function() {
     const username = userInput.value.trim();
     const password = passInput.value.trim();
