@@ -17,7 +17,6 @@ dashboard.get('/', loggedIn, async (req, res) => {
                 [ 'id', 'DESC'],
             ],
         });
-        console.log(userPosts);
         if (userPosts.length === 0) {
             res.status(200).render(`dashboard` , {
                 userInfo: req.session.user, dashboardCheck: true,

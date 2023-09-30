@@ -19,7 +19,6 @@ logLogin.addEventListener('click', async function() {
             body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json' },
         });
-        console.log(response);
         if (response.ok) {
             location.href = '/home';
         } else {

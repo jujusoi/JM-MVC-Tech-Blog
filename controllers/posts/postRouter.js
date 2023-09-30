@@ -15,7 +15,6 @@ post.get('/:id', async (req, res) => {
         res.status(404).json(`Could not find post`);
     } else {
         const mappedPost = postData.get({ plain: true });
-        console.log(mappedPost);
         res.status(200).render('post', {
             mappedPost,
             userInfo: req.session.user,
@@ -27,7 +26,6 @@ post.get('/:id', async (req, res) => {
 });
 
 post.post('/:id', loggedIn, async (req, res) => {
-    console.log(req.body);
     try {
         const newComment = await Comment.create({
             comment_description: req.body.comment_description,

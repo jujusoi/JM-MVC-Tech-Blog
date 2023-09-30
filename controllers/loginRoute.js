@@ -31,8 +31,6 @@ login.post('/', async (req, res) => {
                     username: userData.username,
                 };
                 req.session.logged_in = true;
-                
-                console.log(req.session);
                 res.json({ message: `Successfully logged in!`});
             })
         }
