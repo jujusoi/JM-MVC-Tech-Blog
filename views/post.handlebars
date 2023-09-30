@@ -3,7 +3,7 @@
             <div id="post-screen">
                 <div class="user-div">
                     <div class="username-div d-flex justify-content-between">
-                        <h4 class="username col-9"><a href="/home/users/{{mappedPost.user_id}}">{{mappedPost.user.username}}</a></h4>
+                        <h4 class="username col-9"><a href="/home/users/{{mappedPost.user_id}}">{{mappedPost.user_table.username}}</a></h4>
                         <p class="col-3" style="font-size: 13px; text-align: right;">{{mappedPost.post_date}}</p>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                 {{/if}}                
             </div>
             <section id="comment-section">
-                {{#each mappedPost.comments as |comment|}}
+                {{#each mappedPost.comment_tables as |comment|}}
                 {{> comment-partial}}
                 {{/each}}
           </section>
